@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My EJS Template</title>
+ <%- include('./partials/head'); %> 
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    nav { background-color: #333; padding: 10px; display: flex; align-items: center; }
+    .logo { color: white; font-size: 20px; margin-right: 20px; }
+    nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: space-between; flex-grow: 1; align-items: center; }
+    nav ul li { margin: 0 10px; }
+    nav ul li a { color: white; text-decoration: none; padding: 8px 16px; }
+    nav ul li a:hover { background-color: #575757; border-radius: 4px; }
+    .auth-links { margin-left: auto; display: flex; gap: 10px; }
+    .content { padding: 20px; }
+  </style>
+</head>
+<body>
+    <nav>
+      <div style="margin: auto 50px;"><img src="images/newscove_logo.png" height="70px" width="150px" /></div>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">World</a></li>
+        <li><a href="/contact">Business</a></li>
+        <li><a href="/contact">Sports</a></li>
+        <li><a href="/contact">Politics</a></li>
+        <li><a href="/contact">Climate</a></li>
+        <li class="auth-links">
+          <a href="/signup"><i class="fas fa-user"></i> Sign In</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- [TOI AD] -->
+    <!-- /1064661/Top-Static-Banner -->
+    <!-- <div id="div-gpt-ad-1507617356271-0" class="toi-ads toi-ads_top" style="width: 728px; height: 90px; ">
+      <script>
+        if (isConsentFeatureAvailable('advertising') !== false) {
+          googletag.cmd.push(function () {
+            googletag.display('div-gpt-ad-1507617356271-0');
+          });
+        }
+      </script>
+    </div> -->
+    
+
+    
+<!-- <header>
+    <%- include('./partials/header'); %>
+</header> -->
+<div style="display: flex;">
+  <div class="news-categories" style="flex: 3; padding: 20px;">
+    <h1>Latest News</h1>
+    <div class="category">...</div>
+  </div>
+  <div class="sidebar" style="flex: 1; padding: 20px; background-color: #f4f4f4; border-left: 1px solid #f4efef;">
+    <div class="ad-banner" style="margin-top: 20px; padding: 10px; background-color: #eee; text-align: center; border: 1px dashed #aaa;">
+      <div class="card" style="margin-bottom: 20px;"><a href="www.google.com">
+        <img class="linkImage imgWithDescription" src="images/rci-logo.jpeg" alt="" loading="lazy" pinger-seen="true" />
+        <div id="description">RCI is CBC/Radio-Canada's multilingual service, forging bonds between Canadians and citizens of the world</div>
+      </a></div>
+      <div class="bigBoxContainer"><iframe src="dummy_ad.html" width="100%" height="250" frameborder="2px" style="margin-top: 20px;border:2px solid rgb(41, 121, 214);"></iframe></div>
+    </div>
+   
+    <h4>Latest News</h4>
+    <ul>
+        <% articles.forEach(article => { %>
+          <li>
+            <h2><a href="<%= article.url %>"><%= article.title %></a></h2>
+            <p><%= article.description %></p>
+            <small>Published on <%= article.published_at %></small>
+          </li>
+        <% }) %>
+    </ul>
+  </div>
+</div>
+<footer class="toi-foot">
+    <%- include('./partials/footer'); %>
+</footer>
+
+<div id="toi-progress" class="toi-progress" style="display:none">
+<img src="images/spinner.gif" alt="Loading..." />
+</div>
+
+<style>
+  .news-categories { padding: 20px; }
+  .sidebar h2 { border-bottom: 2px solid #333; padding-bottom: 5px; }
+  .sidebar ul { list-style: none; padding: 0; }
+  .sidebar ul li { margin: 10px 0; }
+  .sidebar ul li a { text-decoration: none; color: #007BFF; }
+  .sidebar ul li a:hover { text-decoration: underline; }
+  img.linkImage {margin: 10px 16px 20px; width: 65%;}
+  .imageLinkWidget.card-rci-description {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .card {
+    align-items: flex-start;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    clear: both;
+    color: #000;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    text-decoration: none;
+    transition: .4s;
+}
+.feed .imageLinkWidget .description {
+    color: #545454;
+    font-size: .875rem;
+    line-height: 1rem;
+    margin: .5rem 1.5rem 0;
+}
+.feed .imageLinkWidget.card-rci-description .description {
+    margin: 10px 16px 8px;
+}
+#description {
+  color:black;
+  font-size: 11px;
+}
+.bigBoxContainer {
+    margin: 0 auto 1rem;
+    min-height: 18rem;
+    width: 300px;
+    border-top: 1px solid #7c7b7b;
+}
+</style>
+
+</body>
+</html>
+
+
