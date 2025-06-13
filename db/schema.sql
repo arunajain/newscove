@@ -4,6 +4,13 @@ CREATE TABLE categories (
   name TEXT UNIQUE NOT NULL
 );
 
+CREATE TABLE subcategories (
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL,                 -- e.g., 'football', 'AI', 'mobile'
+  category_id INTEGER NOT NULL REFERENCES categories(id) ON DELETE CASCADE,
+  UNIQUE(name, category_id)           -- prevent duplicates in same category
+);
+
 CREATE SEQUENCE news_id_seq
     START WITH 1001
     INCREMENT BY 1
@@ -20,6 +27,7 @@ CREATE TABLE news_articles (
   source TEXT,
   published_at TIMESTAMP,
   category_id INTEGER REFERENCES categories(id),
+  subcategory_id INTEGER REFERENCES subcategories(id),
   author TEXT,
   content TEXT,
   created_at TIMESTAMP DEFAULT NOW()
@@ -57,3 +65,4 @@ CREATE TABLE user_subscriptions (
   updated_at TIMESTAMP DEFAULT NOW(),
   UNIQUE(user_id, subscription_type_id)  -- Prevents duplicate subscriptions
 );
+

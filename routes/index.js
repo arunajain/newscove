@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 // const fetch = require('node-fetch');
-const pool = require('../config/db');
+const pool = require('../db/index');
 
 /* GET home page. */
 router.get('/', async (req, res) => {
