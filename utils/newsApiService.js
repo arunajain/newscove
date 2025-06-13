@@ -1,12 +1,13 @@
 const axios = require('axios');
-
+const { saveArticlesToDB } = require('./saveArticlesToDb');
 // Replace this with your actual NewsAPI key
 const NEWS_API_KEY = process.env.NEWS_API_KEY;
 
-const BASE_URL = '';
+const BASE_URL = process.env.NEWS_URL;
 
-const fetchTopHeadlines = async (country = 'us', category = 'general') => {
+const fetchArticle = async (country = 'us', category, categoryId) => {
   try {
+    console.log(`Fetching articles for category: ${category} in country: ${country}`);
     const response = await axios.get(`${BASE_URL}/top-headlines`, {
       params: {
         apiKey: NEWS_API_KEY,
@@ -15,8 +16,9 @@ const fetchTopHeadlines = async (country = 'us', category = 'general') => {
         pageSize: 10, // limit results
       },
     });
-
-    return response.data.articles;
+    const articles = response.data.articles;
+    console.log(`Fetched ${articles.length} articles for category: ${category}`);
+    await saveArticlesToDB(articles, categoryId);
   } catch (error) {
     console.error('Error fetching top headlines:', error.response?.data || error.message);
     throw error;
@@ -42,6 +44,6 @@ const searchNews = async (query) => {
 };
 
 module.exports = {
-  fetchTopHeadlines,
+  fetchArticle,
   searchNews,
 };

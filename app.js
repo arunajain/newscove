@@ -5,10 +5,12 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const cors = require("cors");
+const cron = require("node-cron");
+
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var newsRouter = require("./routes/newsRoutes");
-const categoryRouter = require('./routes/categoryRoutes');
+const categoryRouter = require("./routes/categoryRoutes");
 var app = express();
 
 // view engine setup
@@ -30,6 +32,18 @@ app.use("/api/categories", categoryRouter);
 app.use(function (req, res, next) {
   next(createError(404));
 });
+
+
+//Run at 6am every day
+// cron.schedule("0 6 * * *", async () => {
+//   console.log("Running daily news fetch job started...");
+//   try {
+//     await runFetchForAllCategories();
+//   } catch (error) {
+//     console.error("Error function calling inside cron:", error.message);
+//   }
+// });
+
 
 // error handler
 app.use(function (err, req, res, next) {
