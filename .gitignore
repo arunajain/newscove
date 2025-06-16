@@ -2,4 +2,3 @@
 node_modules/
 package-lock.json
 command_to_run_for_personal_reference.txt
-.env

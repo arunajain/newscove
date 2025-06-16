@@ -9,7 +9,7 @@ const run = require("nodemon/lib/monitor/run");
 /* GET home page. */
 router.get("/", async (req, res) => {
   try {
-    // await runFetchForAllCategories();
+    await runFetchForAllCategories();
     console.log("started");
   } catch (err) {
     console.log("error showing");
