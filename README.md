@@ -1,7 +1,7 @@
 # newscove
 Newscove is a dynamic and user-friendly news platform that delivers the latest news articles across multiple categories designed in NodeJS and Express
 
-# Getting Started
+## Getting Started
 
 Follow these steps to set up the project on your local machine.
 
@@ -26,10 +26,10 @@ Then update the values in `.env` with your own credentials.
 
 ### 4. Set Up the PostgreSQL Database
 Run the SQL files located in the `newscove/db/` directory:
-# Create tables
+#### Create tables
 psql -U your_user -d your_database -f db/schema.sql
 
-# Seed initial data
+#### Seed initial data
 psql -U your_user -d your_database -f db/seed.sql
 
 
